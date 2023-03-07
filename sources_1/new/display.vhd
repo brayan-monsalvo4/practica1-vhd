@@ -24,37 +24,11 @@ architecture Behavioral of display is
     signal display_sel: STD_LOGIC_VECTOR(3 downto 0) := (others => '0');
 	
     signal contador : integer :=0;
-    
-    signal dec_sec_bcd : std_logic_vector(3 downto 0) :="0000";
-    signal uni_sec_bcd : std_logic_vector(3 downto 0) :="0000";
-    signal dec_min_bcd : std_logic_vector(3 downto 0) :="0000";
-    signal uni_min_bcd : std_logic_vector(3 downto 0) :="0000";
 
 begin
 
     anodos <= display_sel;
     
-    
---    process(dec_sec_in)
---    begin
---        dec_sec_bcd <= dec_sec_in;
---    end process;
-    
---    process(uni_sec_in)
---    begin
---        uni_sec_bcd <= uni_sec_in;
---    end process;
-    
---    process(dec_min_in)
---    begin
---        dec_min_bcd <= dec_min_in;
---    end process;
-    
---    process(uni_min_in)
---    begin
---        uni_min_bcd <= uni_min_in;
---    end process;
-
     gen_clock: process(clk)
     begin
     
