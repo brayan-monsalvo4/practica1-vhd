@@ -35,25 +35,25 @@ begin
     anodos <= display_sel;
     
     
-    process(dec_sec_in)
-    begin
-        dec_sec_bcd <= dec_sec_in;
-    end process;
+--    process(dec_sec_in)
+--    begin
+--        dec_sec_bcd <= dec_sec_in;
+--    end process;
     
-    process(uni_sec_in)
-    begin
-        uni_sec_bcd <= uni_sec_in;
-    end process;
+--    process(uni_sec_in)
+--    begin
+--        uni_sec_bcd <= uni_sec_in;
+--    end process;
     
-    process(dec_min_in)
-    begin
-        dec_min_bcd <= dec_min_in;
-    end process;
+--    process(dec_min_in)
+--    begin
+--        dec_min_bcd <= dec_min_in;
+--    end process;
     
-    process(uni_min_in)
-    begin
-        uni_min_bcd <= uni_min_in;
-    end process;
+--    process(uni_min_in)
+--    begin
+--        uni_min_bcd <= uni_min_in;
+--    end process;
 
     gen_clock: process(clk)
     begin
@@ -85,7 +85,7 @@ begin
         
         case display_sel is
             when "1110" =>
-                case uni_sec_bcd is
+                case uni_sec_in is
                     when "0000" => segmentos <= "11000000";
                     when "0001" => segmentos <= "11111001";
                     when "0010" => segmentos <= "10100100";
@@ -101,7 +101,7 @@ begin
                 end case;
             
             when "1101" =>
-                case dec_sec_bcd is
+                case dec_sec_in is
                     when "0000" => segmentos <= "11000000";
                     when "0001" => segmentos <= "11111001";
                     when "0010" => segmentos <= "10100100";
@@ -117,7 +117,7 @@ begin
                 end case;
                 
             when "1011" =>
-                case uni_min_bcd is
+                case uni_min_in is
                     when "0000" => segmentos <= "11000000";
                     when "0001" => segmentos <= "11111001";
                     when "0010" => segmentos <= "10100100";
@@ -133,7 +133,7 @@ begin
                 end case;
                 
             when "0111" =>
-                case dec_min_bcd is
+                case dec_min_in is
                     when "0000" => segmentos <= "11000000";
                     when "0001" => segmentos <= "11111001";
                     when "0010" => segmentos <= "10100100";

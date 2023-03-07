@@ -46,7 +46,9 @@ component temporizador port
         led_estado_inicial : out std_logic;
         led_estado_ejecucion : out std_logic;
         led_estado_pausado: out std_logic;
-        led_estado_finalizado: out std_logic
+        led_estado_finalizado: out std_logic;
+        
+        fin : out std_logic
 );
 end component;
 
@@ -83,6 +85,8 @@ signal dec_min_aux : std_logic_vector(3 downto 0):="0000";
 signal senal_1hz : std_logic:='0';
 signal senal_1khz : std_logic:='0';
 signal senal_10hz : std_logic:='0';
+
+signal fin_aux : std_logic:='0';
 
 begin
 
@@ -124,7 +128,8 @@ instancia_temporizador: temporizador port map
     led_estado_ejecucion => led_ejecucion,
     led_estado_pausado => led_pausado,
     led_estado_finalizado => led_finalizado,
-    enable => switch_enable
+    enable => switch_enable,
+    fin => fin_aux
 );
 
 instancia_display : display port map
